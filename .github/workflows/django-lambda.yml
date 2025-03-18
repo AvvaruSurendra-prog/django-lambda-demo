@@ -43,6 +43,8 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
+          python -m venv venv  # Create a virtual env
+          source venv/bin/activate  # Activate it
           pip install -r requirements.txt
 
       - name: Deploy to AWS Lambda with Zappa
@@ -51,4 +53,5 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: us-east-1
         run: |
+          source venv/bin/activate  # Ensure it’s active
           zappa deploy dev || zappa update dev
