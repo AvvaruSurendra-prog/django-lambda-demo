@@ -1,0 +1,15 @@
+# Virtual environment
+env/
+
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Django stuff
+*.log
+*.sqlite3
+
+# macOS junk
+.DS_Store
